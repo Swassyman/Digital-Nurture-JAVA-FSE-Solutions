@@ -1,0 +1,100 @@
+Week 6 git:(main) git branch "GitWork"
+➜  Week 6 git:(main) echo "hello" > hello.xml
+➜  Week 6 git:(main) ✗ git add hello.xml
+➜  Week 6 git:(main) git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+➜  Week 6 git:(main) git branch "GitWork"
+➜  Week 6 git:(main) git checkout GitWork
+Switched to branch 'GitWork'
+➜  Week 6 git:(GitWork) echo "hello" > hello.xml
+➜  Week 6 git:(main) git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+➜  Week 6 git:(main) git branch GitWork
+➜  Week 6 git:(main) git checkout GitWork
+Switched to branch 'GitWork'
+➜  Week 6 git:(GitWork) touch hello.xml
+➜  Week 6 git:(GitWork) ✗ nano hello.xml
+➜  Week 6 git:(GitWork) ✗ git add .
+➜  Week 6 git:(GitWork) ✗ git commit -m "hello"
+[GitWork 4a57c6e] hello
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Week 6/hello.xml
+➜  Week 6 git:(GitWork) git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+➜  Week 6 git:(main) touch hello.xml
+➜  Week 6 git:(main) ✗ nano hello.xml
+➜  Week 6 git:(main) ✗ git diff GitWork
+➜  Week 6 git:(main) ✗ git diff GitWork main
+➜  Week 6 git:(main) ✗ git merge GitWork
+Updating 17262a3..4a57c6e
+error: The following untracked working tree files would be overwritten by merge:
+	Week 6/hello.xml
+Please move or remove them before you merge.
+Aborting
+➜  Week 6 git:(main) ✗ nano hello.xml
+➜  Week 6 git:(main) ✗ ls
+'Git 1.txt'  'Git 2.txt'  'Git 3.txt'   hello.xml
+➜  Week 6 git:(main) ✗ git checkout GitWork
+error: The following untracked working tree files would be overwritten by checkout:
+	Week 6/hello.xml
+Please move or remove them before you switch branches.
+Aborting
+➜  Week 6 git:(main) ✗ nano hello.xml
+➜  Week 6 git:(main) ✗ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	hello.xml
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  Week 6 git:(main) ✗ git add .
+➜  Week 6 git:(main) ✗ git commit -m "goodbye"
+[main 60eb13f] goodbye
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Week 6/hello.xml
+➜  Week 6 git:(main) git merge GitWork
+Auto-merging Week 6/hello.xml
+CONFLICT (add/add): Merge conflict in Week 6/hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+➜  Week 6 git:(main) ✗ nano hello.xml
+➜  Week 6 git:(main) ✗ nano hello.xml
+➜  Week 6 git:(main) ✗ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+	both added:      hello.xml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  Week 6 git:(main) ✗ git add .
+➜  Week 6 git:(main) ✗ git commit -m "merge fix"
+[main 7353aba] merge fix
+➜  Week 6 git:(main) git push
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (12/12), 1.70 KiB | 1.70 MiB/s, done.
+Total 12 (delta 3), reused 2 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/Swassyman/Digital-Nurture-JAVA-FSE-Solutions.git
+   17262a3..7353aba  main -> main
+➜  Week 6 git:(main) git branch -a
+➜  Week 6 git:(main) git branch -D GitWork
+Deleted branch GitWork (was 4a57c6e).
+➜  Week 6 git:(main) git log --oneline --graph --decorate
