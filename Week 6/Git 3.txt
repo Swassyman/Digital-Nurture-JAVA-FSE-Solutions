@@ -1,0 +1,60 @@
+Week 6 git:(main) ✗ git branch "GitNewBranch"
+➜  Week 6 git:(main) ✗ git branch -a
+➜  Week 6 git:(main) ✗ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+➜  Week 6 git:(GitNewBranch) ✗ touch file.txt
+➜  Week 6 git:(GitNewBranch) ✗ git add file.txt
+➜  Week 6 git:(GitNewBranch) ✗ git commit -m "branch commit"
+[GitNewBranch 1a069d1] branch commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Week 6/file.txt
+➜  Week 6 git:(GitNewBranch) ✗ git status
+On branch GitNewBranch
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	Git 2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+➜  Week 6 git:(GitNewBranch) ✗ ls
+ file.txt  'Git 1.txt'  'Git 2.txt'
+➜  Week 6 git:(GitNewBranch) ✗ got add .
+zsh: command not found: got
+➜  Week 6 git:(GitNewBranch) ✗ git add .
+➜  Week 6 git:(GitNewBranch) ✗ git status
+On branch GitNewBranch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   Git 2.txt
+
+➜  Week 6 git:(GitNewBranch) ✗ git commit -m "git 2"
+[GitNewBranch ebcfad3] git 2
+ 1 file changed, 91 insertions(+)
+ create mode 100644 Week 6/Git 2.txt
+➜  Week 6 git:(GitNewBranch) git statu
+git: 'statu' is not a git command. See 'git --help'.
+
+The most similar commands are
+	status
+	stage
+	stash
+➜  Week 6 git:(GitNewBranch) git status
+On branch GitNewBranch
+nothing to commit, working tree clean
+➜  Week 6 git:(GitNewBranch) git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+➜  Week 6 git:(main) git diff
+➜  Week 6 git:(main) git diff GitNewBranch
+➜  Week 6 git:(main) git log --oneline --graph --decorate
+➜  Week 6 git:(main) git merge
+Already up to date.
+➜  Week 6 git:(main) git merge GitNewBranch
+Updating 1752e12..ebcfad3
+Fast-forward
+ Week 6/Git 2.txt | 91 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Week 6/file.txt  |  0
+ 2 files changed, 91 insertions(+)
+ create mode 100644 Week 6/Git 2.txt
+ create mode 100644 Week 6/file.txt
+➜  Week 6 git:(main) git branch -D GitNewBranch
+Deleted branch GitNewBranch (was ebcfad3).
